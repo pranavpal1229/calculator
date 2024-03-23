@@ -24,6 +24,7 @@ function displayButton(){
         answer_box.textContent = evalOperation(var1, var2, currOp)
     }
     else if(this.value == '+' || this.value == '-' || this.value == 'X'|| this.value == "/"){
+        resetButton(listOfOperations)
         this.style.color = "orange"
         this.style.backgroundColor = 'white'
         opOn = true
@@ -60,7 +61,7 @@ function evalOperation(firstvar, var2, op){
         answer = firstvar - var2
     }
     else if(op == "X"){
-        answer = firstvar* var2
+        answer = (firstvar* var2).toFixed(3)
     }
     else if (op == "/"){
         answer = (firstvar/ var2).toFixed(2)
