@@ -24,6 +24,7 @@ function displayButton(){
         answer_box.textContent = evalOperation(var1, var2, currOp)
     }
     else if(this.value == '+' || this.value == '-' || this.value == 'X'|| this.value == "/"){
+        var1 = answer_box.textContent
         resetButton(listOfOperations)
         this.style.color = "orange"
         this.style.backgroundColor = 'white'
@@ -38,13 +39,12 @@ function displayButton(){
 
 
     }
-    else if(opOn == false && var1 > 0){
+    else if(opOn == false && var1 != 0){
         answer_box.textContent += this.value
         var2 =  answer_box.textContent
     }
     else{
         answer_box.textContent = answer_box.textContent + this.value
-        var1 = answer_box.textContent
     }
 }
 
@@ -75,6 +75,8 @@ function evalOperation(firstvar, var2, op){
 function clearAnswer(){
     answer_box.textContent = " "
     opOn = false
+    var1 = 0
+    var2 = 0
     resetButton(listOfOperations)
 }
 
