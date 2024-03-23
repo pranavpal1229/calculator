@@ -23,9 +23,11 @@ body{
 }
 
 #input{
-    background-color: white;
+    background-color: grey;
     height: 70px;
     width: 260px;
+    display: flex;
+    justify-content: flex-end;
 }
 .row_of_buttons{
     display: flex;
@@ -43,5 +45,15 @@ body{
 
 #second-row, #third-row, #fourth-row{
     margin-top: 30px;
+}
+
+#clear{
+    margin-top: 8px;
+    height: 50px;
+    width: 290px;
+    margin-left: 5px;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
 }
 
