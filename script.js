@@ -21,7 +21,14 @@ buttons.forEach(button => {
 function displayButton(){
     if(this.value == '='){
         resetButton(listOfOperations)
-        answer_box.textContent = evalOperation(var1, var2, currOp)
+        final_ans = evalOperation(var1, var2, currOp)
+        console.log(typeof(final_ans))
+        if (final_ans.length >15){
+            answer_box.textContent = Number(final_ans).toExponential(3)
+        }
+        else{
+            answer_box.textContent = final_ans
+        }
     }
     else if(this.value == '+' || this.value == '-' || this.value == 'X'|| this.value == "/"){
         var1 = answer_box.textContent
@@ -32,6 +39,9 @@ function displayButton(){
         currOp = this.value
     }
     else if(opOn && answer_box.textContent.length >= 0){
+        if (answer_box.textContent.length >15){
+            alert('max digits reached')
+        }
         answer_box.textContent = this.value
         resetButton(listOfOperations)
         var2 = answer_box.textContent
@@ -40,11 +50,17 @@ function displayButton(){
 
     }
     else if(opOn == false && var1 != 0){
+        if (answer_box.textContent.length >15){
+            alert('max digits reached')
+        }
         answer_box.textContent += this.value
         var2 =  answer_box.textContent
     }
     else{
         answer_box.textContent = answer_box.textContent + this.value
+        if (answer_box.textContent.length >15){
+            alert('max digits reached')
+        }
     }
 }
 
@@ -86,3 +102,6 @@ function resetButton(buttonList){
         element.style.color = "white"
     });
 }
+
+let a = 8000000
+console.log(a.toExponential())
